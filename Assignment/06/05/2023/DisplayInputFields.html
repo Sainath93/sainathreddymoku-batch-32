@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Information</title>
+  
+  <script>
+    function displayProfile(event) {
+      event.preventDefault(); 
+
+      var firstName = document.getElementById("firstName").value;
+      var lastName = document.getElementById("lastName").value;
+      var dob = document.getElementById("dob").value;
+      var email = document.getElementById("email").value;
+      var phoneNumber = document.getElementById("phoneNumber").value;
+
+      
+      var profileInfo = document.getElementById("profileInfo");
+      profileInfo.innerHTML = "<strong>Profile Information:</strong><br>";
+      profileInfo.innerHTML += "First Name: " + firstName + "<br>";
+      profileInfo.innerHTML += "Last Name: " + lastName + "<br>";
+      profileInfo.innerHTML += "Date of Birth: " + dob + "<br>";
+      profileInfo.innerHTML += "Email: " + email + "<br>";
+      profileInfo.innerHTML += "Phone Number: " + phoneNumber + "<br>";
+
+    
+      document.getElementById("profileForm").reset();
+    }
+  </script>
+</head>
+<body>
+  <form id="profileForm" onsubmit="displayProfile(event)">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" required>
+    <br><br>
+    
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" required>
+    <br><br>
+    
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" required>
+    <br><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+    <br><br>
+    
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="tel" id="phoneNumber" required>
+    <br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+  
+  <div id="profileInfo"></div>
+</body>
+</html>
