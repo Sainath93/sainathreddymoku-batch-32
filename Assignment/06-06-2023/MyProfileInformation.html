@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyProfile</title>
+    <script>
+        function displayProfile() {
+            var firstName = document.getElementById("Fname").value;
+            var lastName = document.getElementById("Lname").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("PN").value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var hobbies = document.querySelectorAll('input[name="hobbies"]:checked');
+            var hobbiesArray = Array.from(hobbies).map(hobby => hobby.value);
+
+
+            var profileInfo = "First Name: " + firstName + "<br>" +
+                              "Last Name: " + lastName + "<br>" +
+                              "Gender: " + gender + "<br>" +
+                              "Date of Birth: " + dob + "<br>" +
+                              "Email: " + email + "<br>" +
+                              "Phone Number: " + phoneNumber +"<br>"+
+                              "Hobbies: "+ hobbiesArray.join(", ");
+
+            document.getElementById("profileOutput").innerHTML = profileInfo;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="text" id="Fname" placeholder="First Name"><br>
+        <input type="text" id="Lname" placeholder="Last Name"><br>
+        <input type="email" id="email" placeholder="Email"><br>
+        <input type="date" id="dob" placeholder="Date of Birth"><br>
+        Gender:
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label><br>
+        <input type="number" id="PN" placeholder="Phone Number"><br>
+        Hobbies:
+        <input type="checkbox" id="h1" name="hobbies" value="Watching Movies">
+        <label for="h1">Watching Movies</label>
+        <input type="checkbox" id="h2" name="hobbies" value="Playing Cricket">
+        <label for="h2">Playing Cricket</label>
+        <input type="checkbox" id="h3" name="hobbies" value="Browsing">
+        <label for="h3">Browsing</label><br><br>
+        <button type="button" onclick="displayProfile()">Submit</button>
+    </form>
+    <div id="profileOutput"></div>
+</body>
+</html>
