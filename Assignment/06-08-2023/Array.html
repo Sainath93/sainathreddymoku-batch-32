@@ -1,0 +1,17 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            let array=[20,5,79,87,5,9,7];
+            Array.prototype.secondSmallest=function()
+            {
+                let temp=[...this];
+                temp.sort((a,b) => a-b);
+                console.log(temp[1]);
+            }
+            array.secondSmallest();
+        </script>
+    </body>
+</html>
